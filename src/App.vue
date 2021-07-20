@@ -1,13 +1,29 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + Vite" />
+  <main-screen v-if="statusMatch === 'default'" @onStart="onHandleBeforeStart($event)"></main-screen>
+  <interact-screen v-if="statusMatch === 'match'"></interact-screen>
 </template>
 
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-
+// <script setup>
 // This starter template is using Vue 3 experimental <script setup> SFCs
 // Check out https://github.com/vuejs/rfcs/blob/master/active-rfcs/0040-script-setup.md
+// </script>
+<script>
+import MainScreen from "./components/MainScreen.vue";
+import InteractScreen from './components/InteractScreen.vue';
+export default {
+  components: { MainScreen, InteractScreen },
+  name: "App",
+  data () {
+    return {
+      statusMatch: "default",
+    };
+  },
+  methods: {
+    onHandleBeforeStart (config) {
+      this.statusMatch = "match";
+    }
+  }
+}
 </script>
 
 <style>
