@@ -3,19 +3,19 @@
     <h1>Pokémon's Memories</h1>
     <h3>Select mode to start game</h3>
     <div class="action">
-      <button @click="onStart(4)">
+      <button @click="onStart(16)">
         <span>4x4</span>
         <span>Easy</span>
       </button>
-      <button @click="onStart(6)">
+      <button @click="onStart(36)">
         <span>6x6</span>
         <span>Noraml</span>
       </button>
-      <button @click="onStart(8)">
+      <button @click="onStart(64)">
         <span>8x8</span>
         <span>Hard</span>
       </button>
-      <button @click="onStart(10)">
+      <button @click="onStart(100)">
         <span>10x10</span>
         <span>Super Hard</span>
       </button>
@@ -26,8 +26,8 @@
 <script>
 export default {
   methods: {
-    onStart (mode) {
-      this.$emit("onStart", { mode });
+    onStart (totalOfBlocks) {
+      this.$emit("onStart", { totalOfBlocks });
     }
   }
 }
