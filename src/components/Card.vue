@@ -1,12 +1,23 @@
 <template>
-  <div class="card" :class="{ disabled: isDisable }">
+  <div class="card"
+    :class="{ disabled: isDisable }"
+    :style="{
+      height: `${(750 - 16*4) / Math.sqrt(cardContextLength) - 16}px`,
+      width: `${(((750 - 16*4) / Math.sqrt(cardContextLength) - 16) * 3) / 4}px`,
+      perspective: `${(((750 - 16*4) / Math.sqrt(cardContextLength) - 16) * 3) / 4 * 2}px`
+    }">
     <div
       class="card__inner"
       :class="{ 'is-flipped': isFlipped }"
       @click="onToggleFlipCard"
     >
       <div class="card__face card__face--front">
-        <div class="card__content"></div>
+        <div class="card__content" :style="{
+          backgroundSize: `
+            ${(((750 - 16*4) / Math.sqrt(cardContextLength) - 16) * 3) / 4 / 3}px
+            ${(((750 - 16*4) / Math.sqrt(cardContextLength) - 16) * 3) / 4 / 3}px
+          `
+        }"></div>
       </div>
       <div class="card__face card__face--back">
         <div class="card__content">
@@ -26,6 +37,12 @@ export default {
     },
     card: {
       type: [String, Number, Array, Object],
+    },
+    cardContextLength: {
+      type: Number,
+      default: function () {
+        return 0
+      }
     }
   },
   data() {
@@ -55,6 +72,7 @@ export default {
   display: inline-block;
   margin-right: 1rem;
   margin-bottom: 1rem;
+  /* perspective: 10px; */
   width: 90px;
   height: 120px;
 }
@@ -89,7 +107,6 @@ export default {
 
 .card__face--front .card__content {
   background: url("../assets/images/Poké_Ball_icon.svg") no-repeat center center;
-  background-size: 50px 50px;
   height: 100%;
   width: 100%;
 }
@@ -105,5 +122,6 @@ export default {
   background-repeat: no-repeat;
   height: 100%;
   width: 100%;
+  color: #000;
 }
 </style>

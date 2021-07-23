@@ -1,10 +1,10 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap'); */
 
 /* Variables CSS */
 :root {
   --dark: #212121;
   --light: #f3f3f3;
-  font-family: 'Odibee Sans', cursive;
+  --font: 'Odibee Sans', cursive;
 }
 
 * {

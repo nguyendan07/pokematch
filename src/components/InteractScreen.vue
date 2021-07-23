@@ -1,19 +1,21 @@
 <template>
   <div class="screen">
-    <h1>Interact Component here...</h1>
-    <card-flip
+    <div class="screen__inner" :style="{width: `${((((750 - 16*4) / Math.sqrt(cardContext.length) - 16) * 3) / 4 + 16) * Math.sqrt(cardContext.length)}px`}">
+      <card-flip
       v-for="(card, index) in cardContext"
       :key="index"
       :ref="`card-${index}`"
       :imgPokemon="`images/${card}.png`"
       :card="{ index, value: card }"
+      :cardContextLength="cardContext.length"
       @onFlip="checkRule($event)"
     >
     </card-flip>
+    </div>
   </div>
 </template>
 
-<script>
+<script> 
 import CardFlip from "./Card.vue";
 export default {
   components: {
@@ -70,3 +72,23 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.screen {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  background-color: var(--dark);
+  color: var(--light);
+}
+
+.screen__inner {
+  width: 424px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 2rem auto;
+}
+</style>
