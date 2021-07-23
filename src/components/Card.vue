@@ -72,7 +72,6 @@ export default {
   display: inline-block;
   margin-right: 1rem;
   margin-bottom: 1rem;
-  /* perspective: 10px; */
   width: 90px;
   height: 120px;
 }

@@ -76,7 +76,7 @@ export default {
 <style scoped>
 .screen {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   position: absolute;
   top: 0;
   left: 0;
@@ -86,7 +86,7 @@ export default {
 }
 
 .screen__inner {
-  width: 424px;
+  width: calc(424px);
   display: flex;
   flex-wrap: wrap;
   margin: 2rem auto;

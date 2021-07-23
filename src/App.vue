@@ -13,6 +13,7 @@
     :timer="timer" 
     @onStartAgain="statusMatch = 'default'"
   />
+  <copyright class="copyright"/>
 </template>
 
 <!--
@@ -25,11 +26,12 @@
 import MainScreen from "./components/MainScreen.vue";
 import InteractScreen from "./components/InteractScreen.vue";
 import ResultScreen from "./components/ResultScreen.vue";
+import Copyright from "./components/Copyright.vue";
 
 import { shuffled } from "./utils/array";
 
 export default {
-  components: { MainScreen, InteractScreen, ResultScreen },
+  components: { MainScreen, InteractScreen, ResultScreen, Copyright },
   name: "App",
   data() {
     return {
@@ -70,5 +72,42 @@ export default {
 #app {
   text-align: center;
   margin-top: 60px;
+}
+
+.screen {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: var(--dark);
+  color: var(--light);
+}
+
+.screen h1 {
+  font-size: 5rem;
+  text-transform: uppercase;
+}
+
+.screen h3 {
+  font-size: 2rem;
+}
+
+.copyright {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 1.5rem;
+  color: var(--light);
+  z-index: 3;
+  font-size: 1.5rem;
+}
+.copyright a {
+  color: #f4dc26;
 }
 </style>
